@@ -1,0 +1,13 @@
+FROM centos:centos7
+
+RUN timedatectl set-timezone Asia/Tokyo
+
+RUN yum -y update; yum clean all
+RUN yum -y install openssh-server passwd; yum clean all
+RUN yum -y install sudo; yum clean all
+
+RUN mkdir -m 700 ~/.ssh
+// TODO
+ARG PUBLIC_KEY=""
+RUN echo ${PUBLIC_KEY} > ~/.ssh/authorized_keys
+RUN chmod 600 ~/.ssh/authorized_keys
