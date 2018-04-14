@@ -1,17 +1,13 @@
 FROM centos:centos7
 
-RUN timedatectl set-timezone Asia/Tokyo
 RUN yum -y update
 RUN yum -y install openssh-server passwd
 RUN yum -y install sudo
 RUN yum -y install openssh-clients
-RUN yum -y install vixie-cron
-RUN yum -y install cronie
 RUN yum -y install wget
 RUN yum -y install curl
 RUN yum -y install curl-devel
 RUN yum -y install git
-RUN yum -y install jq
 RUN yum -y install zip
 RUN yum -y install unzip
 RUN yum -y install make
